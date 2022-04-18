@@ -1,5 +1,5 @@
 # Ethiopian Blogger
-This is the project which helps Ethiopian Writer to Write thier open on this website
+This is the project which helps Ethiopian Writer to Write thier opinion.
 
 
 # Getting Started with Create React App
