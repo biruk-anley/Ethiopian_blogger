@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BlogList from "./BlogList";
+import BlogLists from "./BlogLists";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([
@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <BlogList blogse={blogs} title="All of the Blogs" handleDelete={handleDelete} />
+      <BlogLists blogse={blogs} title="All of the Blogs" handleDelete={handleDelete} />
     </div>
   );
 };
