@@ -4,38 +4,33 @@ import BlogList from "./BlogList";
 const Home = () => {
   const [blogs, setBlogs] = useState([
     {
-      title: "Wulibta",
+      title: "ዉልብታ",
       body: "lorem lorem lorem epseum so that no onwe",
-      author: "Alemayehu Gelagay",
+      author: "አለማየሁ ገላጋይ",
       id: 1,
     },
     {
-      title: "Lijnet",
+      title: "ልጅነት",
       body: "fungay ke hitsanu gar eyetechawete eylal mushira hun tebale",
-      author: "Zenebe wella",
+      author: "ዘነበ ወላ",
       id: 2,
     },
     {
-      title: "Abocher",
+      title: "አቦቸር",
       body: "salsedbachew eskezare semche emalakewun sidib sedebugn ",
-      author: "Endalegeta Kebede",
+      author: "እንዳለጌታ ከበደ",
       id: 3,
     },
-    {
-      title: "Wurisa",
-      body: "lorem lorem amperopir lorem epseum so that no onwe",
-      author: "Alemayehu Gelagay",
-      id: 4,
-    },
+    
   ]);
+    const handleDelete = (id) => {
+        const newset = blogs.filter(blog => blog.id !== id);
+        setBlogs(newset);
+    }
 
   return (
     <div className="home">
-      <BlogList blogse={blogs} title="All of the Blogs" />
-      <BlogList
-        blogse={blogs.filter((blog) => blog.author === "Alemayehu Gelagay")}
-        title="Alemayehu blog"
-      />
+      <BlogList blogse={blogs} title="All of the Blogs" handleDelete={handleDelete} />
     </div>
   );
 };
