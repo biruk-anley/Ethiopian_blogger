@@ -1,4 +1,6 @@
 import { useState } from "react";
+import BlogList from "./BLogList";
+
 
 const Home = () => {
     const [blogs, setBlogs] = useState([
@@ -20,19 +22,20 @@ const Home = () => {
         author: "Endalegeta Kebede",
         id: 3,
       },
+      {
+        title: "Wurisa",
+        body: "lorem lorem amperopir lorem epseum so that no onwe",
+        author: "Alemayehu Gelagay",
+        id: 4,
+      },
     ]);
    
-    return ( 
-        <div className="home">
-            {blogs.map((blog) => (
-                <div className="blog-preview">
-                    <h2>{blog.title}</h2>
-                    <p>written by {blog.author}</p>
-                </div>
-            )
-            )}   
-        </div>
-     );
+    return (
+      <div className="home">
+        <BlogList blogse={blogs} title="All of the Blogs" />
+        <BlogList blogse={blogs.filter((blog)=>blog.author==="Alemayehu Gelagay")} title="Alemayehu blog" />
+      </div>
+    );
 }
   
 export default Home;
