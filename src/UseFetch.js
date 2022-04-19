@@ -22,13 +22,16 @@ const UseFetch = (url) => {
                 setError(null);
               })
               .catch((err) => {
-                setError(err.message); // this is network error handler // to see this type of error disconnect json server::
-                setIsloading(false); // to remove loading message
-              });
+                
+                  setError(err.message); // this is network error handler // to see this type of error disconnect json server::
+                  setIsloading(false); // to remove loading message
+                }
+               
+              );
           }, 1000);
             
             // lets clean out using abort controller
-            return ()=>console.log('clean UP')
+      return () => abortcount.abort();
         }, []);
     return{data, isloading,error}
 
