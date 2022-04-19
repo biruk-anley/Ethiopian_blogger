@@ -6,7 +6,8 @@ const UseFetch = (url) => {
         const [error, setError] = useState(null);
 
         // this is the fucnction which is going to be renderd at the first time and  ever time the state chnage there will be rendering
-        useEffect(() => {
+    useEffect(() => {
+        const abortcount = new AbortController();
           setTimeout(() => {
             fetch(url) //get response object 2 use json method and tackle data
               .then((res) => {
@@ -25,6 +26,9 @@ const UseFetch = (url) => {
                 setIsloading(false); // to remove loading message
               });
           }, 1000);
+            
+            // lets clean out using abort controller
+            return ()=>console.log('clean UP')
         }, []);
     return{data, isloading,error}
 
