@@ -1,51 +1,39 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import BlogLists from "./BlogLists";
 
 const Home = () => {
-  const [name, setName] = useState("Jakob");
-  const [blogs, setBlogs] = useState([
-    {
-      title: "ዉልብታ",
-      body: "lorem lorem lorem epseum so that no onwe",
-      author: "አለማየሁ ገላጋይ",
-      id: 1,
-    },
-    {
-      title: "ልጅነት",
-      body: "fungay ke hitsanu gar eyetechawete eylal mushira hun tebale",
-      author: "ዘነበ ወላ",
-      id: 2,
-    },
-    {
-      title: "አቦቸር",
-      body: "salsedbachew eskezare semche emalakewun sidib sedebugn ",
-      author: "እንዳለጌታ ከበደ",
-      id: 3,
-    },
-  ]);
-
-  
-  const handleDelete = (id) => {
-    const newset = blogs.filter((blog) => blog.id !== id);
-    setBlogs(newset);
-  };
+  const [blogs, setBlogs] = useState(null);
+  const [isloading, setIsloading] = useState(true);
+  const [error, setError] = useState(null);
 
   // this is the fucnction which is going to be renderd at the first time and  ever time the state chnage there will be rendering
   useEffect(() => {
-    console.log("use effect runn");
-    console.log(name);
- 
+    setTimeout(() => {
+      fetch("http://localhost:8000/blogs") //get response object 2 use json method and tackle data
+        .then((res) => {
+          if (!res.ok) {
+            throw Error("couldn't fetch data since it doesn't exist"); // this is unable to fetch data error :: to see this error chang feth url like blogss
+          }
+          return res.json(); // this will parse json into js object
+        })
+        .then((data) => {
+          setBlogs(data);
+          setIsloading(false);
+          setError(null);
+        })
+        .catch((err) => {
+          setError(err.message); // this is network error handler // to see this type of error disconnect json server::
+          setIsloading(false); // to remove loading message
+        });
+    }, 2000);
   }, []);
 
   return (
     <div className="home">
-      <BlogLists
-        blogse={blogs}  
-        title="All of the Blogs"
-        handleDelete={handleDelete}
-      />
-      <button onClick={() => setName("Peter")}>ChangeName</button>
-      <p>{name}</p>
+      {isloading && <div>Loading</div>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      {blogs && <BlogLists blogse={blogs} title="All of the Blogs" />}
     </div>
   );
 };
