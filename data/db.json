@@ -1,0 +1,22 @@
+{
+    "blogs":[
+     {
+        "title": "ዉልብታ",
+        "body": "lorem lorem lorem epseum so that no onwe",
+        "author": "አለማየሁ ገላጋይ",
+        "id": 1
+    },
+    {
+        "title": "ልጅነት",
+        "body": "fungay ke hitsanu gar eyetechawete eylal mushira hun tebale",
+        "author": "ዘነበ ወላ",
+        "id": 2
+    },
+    {
+        "title": "አቦቸር",
+        "body": "salsedbachew eskezare semche emalakewun sidib sedebugn ",
+        "author": "እንዳለጌታ ከበደ",
+        "id ": 3
+    }
+    ]
+}
