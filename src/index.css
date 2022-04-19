@@ -68,3 +68,29 @@
   }
 
 }
+
+.blog-preview a{
+  text-decoration: none;
+}
+
+/*  blog details page*/
+.blog-details h2{
+  font-size: 25px;
+  color: #353bf1b4;
+  margin-bottom: 10px;
+}
+.body-detail{
+  margin: 20px 0;
+  border: 2px solid #353bf146;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.blog-details p{
+  font-size: 20px;
+}
+.body-detail{
+  font-size: 20px;
+}
+
+/*   */
