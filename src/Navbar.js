@@ -7,7 +7,7 @@ const Navabr = () => {
       <img src={blog2} className="imgs" alt="img logo" />
       <h2>Ethiopian's Blog</h2>
       <div className="links">
-        <Link to="/">Home</Link>
+        <Link to="/">HOme</Link>
         <Link
           to="/create"
           style={{
