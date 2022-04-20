@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UseFetch from "./UseFetch";
 
 const BlogDetail = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
      const {
        data: blog,
@@ -9,6 +10,15 @@ const BlogDetail = () => {
        isloading,
      } = UseFetch("http://localhost:8000/blogs/" + id);
 
+    const deletehandle = () => {
+        fetch("http://localhost:8000/blogs/" + blog.id, {
+            method: "DELETE",
+
+        }).then(() => {
+            navigate("/")
+        })
+    }
+    
     return (
         <div className="blog-details">
             {isloading && <div>Loading...</div>}
@@ -20,6 +30,7 @@ const BlogDetail = () => {
                     <div className="body-detail">
                         {blog.body}
                     </div>
+                    <button onClick={deletehandle}>Delete</button>
                 </article>
             )}
         
