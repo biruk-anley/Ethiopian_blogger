@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import blog2 from "./blog2.png";
+import blog2 from "./img/blog2.png";
 const Navabr = () => {
   return (
     <nav className="navbar">
