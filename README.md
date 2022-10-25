@@ -16,5 +16,4 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 # Image gallery
-
-It will be added soon
+![image](https://user-images.githubusercontent.com/95366947/197879418-b1ff50cd-7a01-4995-8d2e-3d1bf2cf30e6.png)
